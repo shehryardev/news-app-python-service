@@ -24,29 +24,34 @@ A powerful FastAPI-based news recommendation service with machine learning capab
 ### Local Development
 
 1. **Clone the repository**
+
    ```bash
    git clone <your-repo-url>
    cd python-service
    ```
 
 2. **Create virtual environment**
+
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 3. **Install dependencies**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Set up environment variables**
+
    ```bash
    cp .env.example .env
    # Edit .env with your configuration
    ```
 
 5. **Run the server**
+
    ```bash
    uvicorn api:app --reload
    ```
@@ -72,32 +77,38 @@ DB_NAME=news_db_prod
 ## 🔗 API Endpoints
 
 ### Authentication
+
 - `POST /register` - User registration
 - `POST /token` - Login with email/password
 - `POST /auth/google` - Google OAuth login
 
 ### Recommendations
+
 - `GET /recommendations` - Get personalized recommendations
 - `GET /trending` - Get trending articles
 
 ### User Actions
+
 - `POST /like` - Like an article
 - `DELETE /like` - Unlike an article
 - `GET /likes` - Get user's liked articles
 - `POST /seen` - Mark articles as seen
 
 ### Content
+
 - `GET /browse` - Browse all articles with filters
 
 ## 🧠 ML Recommendation Engine
 
 ### Algorithm Features
+
 - **Content-Based Filtering**: Uses SentenceTransformers for semantic similarity
 - **Diverse Recommendations**: Intelligent tag diversification for new users
 - **Adaptive Learning**: Learns from user preferences over time
 - **Cold Start Handling**: Smart random recommendations with category diversity
 
 ### Performance
+
 - **Model**: all-MiniLM-L6-v2 (384-dimensional embeddings)
 - **Similarity**: Cosine similarity for content matching
 - **Fallback**: Tag-diverse random selection for new users
@@ -106,12 +117,14 @@ DB_NAME=news_db_prod
 ## 📊 Database Schema
 
 ### Collections
+
 - **users**: User profiles and authentication
 - **news**: Article content and metadata
 - **likes**: User-article preference mapping
 - **seen_articles**: Reading history tracking
 
 ### Indexes
+
 - User email (unique)
 - User-article likes (compound, unique)
 - User-article seen (compound, unique)
@@ -127,6 +140,7 @@ DB_NAME=news_db_prod
 ## 🧪 Development
 
 ### Running Tests
+
 ```bash
 # Install test dependencies
 pip install pytest pytest-asyncio httpx
@@ -136,6 +150,7 @@ pytest
 ```
 
 ### Code Quality
+
 ```bash
 # Format code
 black .
@@ -150,12 +165,14 @@ mypy .
 ## 📈 Performance Optimization
 
 ### For Production
+
 - Use connection pooling for MongoDB
 - Implement Redis caching for frequent requests
 - Pre-compute embeddings for better performance
 - Monitor with APM tools
 
 ### For Vercel
+
 - Optimize cold start times
 - Use Vercel Pro for better limits
 - Implement proper error handling
