@@ -1,0 +1,3 @@
+start the server
+
+1. uvicorn api:app --reload
