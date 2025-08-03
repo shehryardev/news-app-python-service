@@ -18,6 +18,7 @@ A powerful FastAPI-based news recommendation service with machine learning capab
 - **ML**: scikit-learn, pandas, SentenceTransformers
 - **Auth**: JWT with Google OAuth2
 - **Deployment**: Vercel-ready with optimized configuration
+<!--  -->
 
 ## 🚀 Quick Start
 
